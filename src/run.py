@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask import jsonify
 
 app = Flask(__name__)
@@ -10,7 +10,15 @@ def index():
 
 @app.route('/mystring')
 def mystring():
+    test = request.args.get('mydata')
+    print(test)
     return 'my string'
+
+@app.route('/dataFromAjax')
+def dataFromAjax():
+    test = request.args.get('mydata')
+    print(test)
+    return 'dataFromAjax'
 
 @app.route('/mydict', methods=['GET', 'POST'])
 def mydict():
@@ -21,6 +29,9 @@ def mydict():
 def mylist():
     l = ['xmr', 18]
     return jsonify(l)
+
+
+
 
 if __name__ == '__main__':
     app.run()

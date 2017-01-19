@@ -26,7 +26,13 @@ $(document).ready(function(){
 	});
 
     $(".btn4").click(function(){
-		$.ajax({url:"/mystring", success:function(data){
+		$.ajax({url:"/mystring", data:{"mydata": "test"},success:function(data){
+			alert(data);
+		}});
+	});
+
+	    $(".btn6_2").click(function(){
+		$.ajax({url:"/dataFromAjax", data:{"mydata": "test data"},success:function(data){
 			alert(data);
 		}});
 	});
@@ -74,7 +80,8 @@ $(document).ready(function(){
     <button class="btn3">get list</button> <br/><br/>
     <button class="btn4">ajax string</button>
     <button class="btn5">ajax dict</button>
-    <button class="btn6">ajax list</button><br/><br/>
+    <button class="btn6">ajax list</button>
+    <button class="btn6_2">ajax sentDataToFlask</button><br/><br/>
     <p>load:</p>
     <button class="btn7">load  from file</button>
     <button class="btn10">load</button><br/><br/>
