@@ -10,8 +10,6 @@ def index():
 
 @app.route('/mystring')
 def mystring():
-    test = request.args.get('mydata')
-    print(test)
     return 'my string'
 
 @app.route('/dataFromAjax')
