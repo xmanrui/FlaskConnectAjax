@@ -32,12 +32,19 @@ def mydict():
     return jsonify(d)
 
 
+@app.route('/myform', methods=['POST'])
+def myform():
+    print('post')
+    a = request.form['FirstName']
+    print(a)
+    d = {'name': 'xmr', 'age': 18}
+    return jsonify(d)
+
+
 @app.route('/mylist')
 def mylist():
     l = ['xmr', 18]
     return jsonify(l)
-
-
 
 
 if __name__ == '__main__':
