@@ -4,13 +4,16 @@ from flask import jsonify
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "dfdfdffdad"
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
 @app.route('/mystring')
 def mystring():
     return 'my string'
+
 
 @app.route('/dataFromAjax')
 def dataFromAjax():
@@ -18,10 +21,16 @@ def dataFromAjax():
     print(test)
     return 'dataFromAjax'
 
+
 @app.route('/mydict', methods=['GET', 'POST'])
 def mydict():
+    print('post')
+    if request.method == 'POST':
+        a = request.form['mydata']
+        print(a)
     d = {'name': 'xmr', 'age': 18}
     return jsonify(d)
+
 
 @app.route('/mylist')
 def mylist():
