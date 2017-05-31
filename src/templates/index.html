@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Jquery Ajax Test</title>
-    <script src="https://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
     </script>
 <script>
 $(document).ready(function(){
@@ -65,7 +65,7 @@ $(document).ready(function(){
     });
 
     $(".btn9").click(function(){
-        $.post("/mydict", function(data, status){
+        $.post("/mydict", {"mydata": "data from front", 'youdata': 'youdata from front'}, function(data, status){
 			alert("name: " + data.name + " age:" + data.age);
     });
 });
