@@ -46,7 +46,7 @@ def myform():
 def mylist():
     l = ['xmr', 18]
     print('mylist')
-    return json.dumps(l)
+    return json.dumps(l)  # 用jsonify前端会出错
 
 
 if __name__ == '__main__':
