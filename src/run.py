@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask import jsonify
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "dfdfdffdad"
@@ -44,7 +45,8 @@ def myform():
 @app.route('/mylist')
 def mylist():
     l = ['xmr', 18]
-    return jsonify(l)
+    print('mylist')
+    return json.dumps(l)
 
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Jquery Ajax Test</title>
-    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    <script src="static/jquery.min.js">
     </script>
 <script>
 $(document).ready(function(){
@@ -21,7 +21,9 @@ $(document).ready(function(){
 
     $(".btn3").click(function(){
 		$.get("/mylist",function(data, status){
-			alert("name: " + data[0]+ " age:" + data[1]);
+			alert("name: " + data);
+			var json = eval('(' + data + ')');
+            alert('name: ' + json[0] + ' age:' + json[1]);
 		});
 	});
 
@@ -45,7 +47,9 @@ $(document).ready(function(){
 
     $(".btn6").click(function(){
 		$.ajax({url:"/mylist", success:function(data){
-			alert("name: " + data[0] + " age:" + data[1]);
+            alert("name: " + data);
+            var json = eval('(' + data + ')');
+            alert('name: ' + json[0] + ' age:' + json[1]);
 		}});
 	});
 
