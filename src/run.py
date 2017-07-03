@@ -33,6 +33,15 @@ def mydict():
     return jsonify(d)
 
 
+@app.route('/name', methods=['POST'])
+def getname():
+    firstname = request.form['firstname']
+    lastname = request.form['lastname']
+    d = {'name': firstname + ' ' + lastname, 'age': 18}
+    print(d)
+    return jsonify(d)
+
+
 @app.route('/myform', methods=['POST'])
 def myform():
     print('post')

@@ -71,8 +71,18 @@ $(document).ready(function(){
     $(".btn9").click(function(){
         $.post("/mydict", {"mydata": "data from front", 'youdata': 'youdata from front'}, function(data, status){
 			alert("name: " + data.name + " age:" + data.age);
+        });
     });
-});
+
+        $(".btn11").click(function(){
+        var firstname = $("#firstname").val();
+        var lastname = $("#lastname").val();
+
+        $.post("/name", {"firstname": firstname, 'lastname': lastname}, function(data, status){
+			alert("name: " + data.name + "  age:" + data.age);
+        });
+    });
+
 });
 </script>
 
@@ -95,9 +105,12 @@ $(document).ready(function(){
 
 
 <form action="/myform" method='post'>
-First name: <input type="text" name="FirstName" value="Mickey"><br>
-Last name: <input type="text" name="LastName" value="Mouse"><br>
+First name: <input type="text" name="FirstName" value="Mickey" id="firstname"><br>
+Last name: <input type="text" name="LastName" value="Mouse" id="lastname"><br>
 <input type="submit" value="提交">
 </form>
+<br/><br/>
+<button class="btn11">send name to flask</button>
+
 </body>
 </html>
