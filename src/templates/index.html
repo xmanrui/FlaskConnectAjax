@@ -84,6 +84,35 @@ $(document).ready(function(){
     });
 
 });
+
+  function CreateTable(rowCount,cellCount)
+  {
+    $("#createtable").empty();
+     var table=$("<table border='1' cellspacing='0'> </table>");
+     table.appendTo($("#createtable"));
+
+     var trh=$("<tr></tr>");
+     trh.appendTo(table);
+
+     for(var h=0; h<cellCount; h++)
+     {
+        var th = $("<th>" +h+"</th>");
+        th.appendTo(trh);
+     }
+
+     for(var i=0;i<rowCount;i++)
+     {
+        var tr=$("<tr></tr>");
+        tr.appendTo(table);
+        for(var j=0;j<cellCount;j++)
+        {
+           var td=$("<td>"+i*j+"</td>");
+           td.appendTo(tr);
+        }
+     }
+
+  }
+
 </script>
 
 </head>
@@ -111,6 +140,8 @@ Last name: <input type="text" name="LastName" value="Mouse" id="lastname"><br>
 </form>
 <br/><br/>
 <button class="btn11">send name to flask</button>
-
+<input type="button" value="添加表格" onClick="CreateTable(5,6)" >
+<br/><br/>
+<div id="createtable"></div>
 </body>
 </html>
