@@ -58,5 +58,18 @@ def mylist():
     return json.dumps(l)  # 用jsonify前端会出错
 
 
+@app.route('/mytable')
+def mytable():
+    table = [('id', 'name', 'age', 'score'),
+        ('1', 'xiemanrui', '18', '100'),
+        ('2', 'yxx', '18', '100'),
+        ('3', 'yaoming', '37', '88')]
+
+    print('mytable')
+    data = json.dumps(table)
+    print(data)
+    return data
+
+
 if __name__ == '__main__':
     app.run()
